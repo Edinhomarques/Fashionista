@@ -1,0 +1,10 @@
+.target {
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  background-color: #212529;
+  color: #FFFF;
+  padding: 2px;
+  border-radius: 2px;
+  right: 0px;
+}
