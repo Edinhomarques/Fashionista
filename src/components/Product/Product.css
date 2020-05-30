@@ -1,0 +1,34 @@
+.product {
+  height: 500px;
+  max-width: 350px;
+  margin-top: 90px;
+  position: relative;
+  margin-right: 5px;
+}
+.product:hover{
+  border:1px solid #2125292d;
+}
+
+.product, a {
+  text-decoration: none;
+  color: #212529;
+  text-align: center;
+}
+
+.product__photo{
+  max-width: 350px;
+}
+
+.product__name{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.product__price{
+  padding: 1px 5px;
+}
+
+.product__price--discount{
+  color: #a7a7a7;
+  text-decoration: line-through;
+}
