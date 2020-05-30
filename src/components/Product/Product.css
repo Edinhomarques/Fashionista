@@ -1,7 +1,6 @@
 .product {
-  height: 500px;
+  height: 400px;
   max-width: 350px;
-  margin-top: 90px;
   position: relative;
   margin-right: 5px;
 }
@@ -16,7 +15,9 @@
 }
 
 .product__photo{
-  max-width: 350px;
+  width: 100%;
+  overflow: hidden;
+  max-height: 350px;
 }
 
 .product__name{
