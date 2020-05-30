@@ -1,0 +1,17 @@
+
+.count{
+  min-height: 18px;
+  min-width: 18px;
+  color: #FFFF;
+  background-color: #cf3838;
+  border-radius: 50px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  line-height: 12px;
+}
+.count__value{
+  font-size: 10px;
+  font-weight: bold;
+  
+}
