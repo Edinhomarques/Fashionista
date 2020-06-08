@@ -2,7 +2,7 @@ import React from 'react';
 import './Topbar.css';
 import { SearchButton,  ShoppingButton} from '../Button/TypeButton';
 import Counter from '../Counter/Counter'
-export default function Topbar(){
+export default function Topbar({isVisible}){
   return (
     <header className="header">
       <div className="container">
@@ -15,6 +15,7 @@ export default function Topbar(){
               className="header__icons--search">
             </SearchButton>
             <ShoppingButton
+              onClick={isVisible}
               className="header__icons--cart">
                 <Counter count={50} />
             </ShoppingButton>

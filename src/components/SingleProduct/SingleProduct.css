@@ -1,0 +1,81 @@
+.singleItem {
+  display: flex;
+  height: 85vh;
+  max-width: 850px;
+  margin-right: 5px;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+.singleItem__header {
+  position: relative;
+  max-width: 450px;
+  overflow: hidden;
+}
+.singleItem__photo{
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  min-height: 350px;
+  max-height: 650px;
+}
+
+.singleItem__section {
+  max-width: 360px;
+  width: 100%;
+  padding: 20px;
+}
+
+.singleItem__name{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.singleItem__price{
+  padding: 1px;
+  
+}
+
+.singleItem__price--color{
+  color: #a7a7a7;
+  font-weight: bold;
+}
+
+.singleItem__price--discount{
+  color: #a7a7a7;
+  text-decoration: line-through;
+}
+
+.singleItem__size {
+  color: #a7a7a7;
+  text-align: left;
+  margin-top: 10px;
+
+}
+.singleItem__btn {
+  background-color: transparent;
+  margin: 5px;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #000000
+
+}
+.singleItem__btn--selected {
+  background-color: #000000;
+  color: #FFFFFFFF
+
+}
+
+.add__button {
+  height: 35px;
+  margin-top: 15px;
+  border-radius: 10px;
+  width: 250px;
+  border: none;
+  background-color: #000000;
+  color: #FFFFFF;
+  box-shadow: 0px 0px 12px -2px #000000;
+}

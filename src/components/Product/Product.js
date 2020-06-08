@@ -1,25 +1,27 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import Target from '../Target/Target'
-
+import img from '../../assets/foto_nao_disponivel.gif'
 import './Product.css'
 
-export default function Product() {
+export default function Product({ position, product } ) {
   return (
     <div className="product">
-      <a href="/">
+      <Link to={`/item/${position}`}>
         <div className="product__header">
-          {false && <Target discount={'50%'}/> }
-          <img className="product__photo" src="https://viniciusvinna.netlify.app/assets/api-fashionista/20002605_615_catalog_1.jpg" alt="" />
+          {!!product.discount_percentage && <Target discount={product.discount_percentage}/> }
+          <img className="product__photo" src={product.image ? product.image : img} alt="" />
         </div>
         <div className="product__footer">
-          <span className="product__name">VESTIDO TRANSPASSE BOW</span>
+          <span className="product__name">{product.name}</span>
           <div className="product__price">
-            <span className={`product__price ${false ? 'product__price--discount' : '' }`}>R$ 199,90</span>
-            {false && <span className="product__price">R$ 159,90</span>}
+            <span className={`product__price ${!!product.discount_percentage ? 'product__price--discount' : '' }`}>
+              {product.regular_price}
+            </span>
+            {!!product.discount_percentage && <span className="product__price">{product.actual_price}</span>}
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   )
 }

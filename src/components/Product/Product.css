@@ -18,6 +18,7 @@
   width: 100%;
   overflow: hidden;
   max-height: 350px;
+  min-height: 350px;
 }
 
 .product__name{

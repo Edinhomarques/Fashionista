@@ -17,7 +17,7 @@ export const ShoppingButton = ({children, ...props}) => (
   </Button>
 )
 
-export const backButton = ({children, ...props}) => (
+export const BackButton = ({children, ...props}) => (
   <Button {...props}>
     <FiArrowLeft />
     {children}
