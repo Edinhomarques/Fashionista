@@ -4,14 +4,38 @@ import img from '../../assets/foto_nao_disponivel.gif'
 import './SingleProduct.css'
 import Button from '../Button/Button'
 export default function SingleProduct({ singleItem } ) {
-  const [size, setSize] = useState('')
-  console.log(singleItem.sizes)
+  const [selectedSize, setSelectedSize] = useState('')
+  const [selectedProduct, setSelectedProduct] = useState({
+    cart: [],
+  })
+  
+  const [msg, setMsg] = useState(false)
   if(!singleItem.sizes)
     return null
     
-  function selectSize(itemSize){
-    console.log(itemSize)
-    setSize(itemSize)
+  function handleSelectedSize(itemSize){
+    setSelectedSize(itemSize)
+  }
+  function handleSelectProduct(item, size){
+    if(size === ''){
+      setMsg(true)
+    } else {
+      const product = {...item, selectSized: size}
+      setSelectedProduct({
+        cart: [...selectedProduct.cart, product],
+      })
+     const storageItem = JSON.parse(localStorage.getItem('cart'))
+     if(storageItem){
+        localStorage.setItem('cart',JSON.stringify({
+          cart: [...storageItem.cart, product]
+        }) )
+     }else{
+      localStorage.setItem('cart', JSON.stringify({
+        cart: [...selectedProduct.cart, product],
+      }))
+    }
+      //localStorage.clear()
+    }
   }
   return (
     <>
@@ -30,14 +54,15 @@ export default function SingleProduct({ singleItem } ) {
             <span className='singleItem__price singleItem__price--color'>em até {singleItem.installments}</span>
           </div>
           <div className="singleItem__size">
-            <span>escolha um tamanho</span>
+            <p>escolha um tamanho</p>
+            {msg && <span className="msg">Obrigatório escolher um tamanho</span>}
             <div className="singleItem__btn-group">
                 {singleItem.sizes.map(item => (
-                  item.available && <Button onClick={() => selectSize(item.size)} key={item.sku} className={size === item.size ? 'singleItem__btn singleItem__btn--selected' : 'singleItem__btn'}>{item.size}</Button>
+                  item.available && <Button onClick={() => handleSelectedSize(item.sku)} key={item.sku} className={selectedSize === item.sku ? 'singleItem__btn singleItem__btn--selected' : 'singleItem__btn'}>{item.size}</Button>
                 ))}
             </div>
           </div>
-          <Button className="add__button">Adicionar à sacola</Button>
+          <Button className="add__button" onClick={() => handleSelectProduct(singleItem, selectedSize)}>Adicionar à sacola</Button>
 
 
         </section>

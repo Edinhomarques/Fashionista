@@ -5,13 +5,14 @@
   margin-right: 5px;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
+
 .singleItem__header {
   position: relative;
   max-width: 450px;
   overflow: hidden;
 }
+
 .singleItem__photo{
   width: 100%;
   overflow: hidden;
@@ -33,7 +34,6 @@
 
 .singleItem__price{
   padding: 1px;
-  
 }
 
 .singleItem__price--color{
@@ -50,7 +50,10 @@
   color: #a7a7a7;
   text-align: left;
   margin-top: 10px;
-
+}
+.msg {
+  font-weight: bold;
+  color: rgb(177, 0, 0);
 }
 .singleItem__btn {
   background-color: transparent;
@@ -60,13 +63,12 @@
   border: 1px solid #000000;
   border-radius: 5px;
   font-weight: bold;
-  color: #000000
-
+  color: #000000;
 }
+
 .singleItem__btn--selected {
   background-color: #000000;
-  color: #FFFFFFFF
-
+  color: #FFFFFFFF;
 }
 
 .add__button {
