@@ -3,6 +3,8 @@ import './Topbar.css';
 import { SearchButton,  ShoppingButton} from '../Button/TypeButton';
 import Counter from '../Counter/Counter'
 export default function Topbar({isVisible}){
+  const items = JSON.parse(localStorage.getItem('cart'))
+  
   return (
     <header className="header">
       <div className="container">
@@ -17,7 +19,7 @@ export default function Topbar({isVisible}){
             <ShoppingButton
               onClick={isVisible}
               className="header__icons--cart">
-                <Counter count={50} />
+                <Counter count={items ? items.cart.length : 0} />
             </ShoppingButton>
           </div>
         </div> 
