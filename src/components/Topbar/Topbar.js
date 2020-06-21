@@ -19,7 +19,7 @@ export default function Topbar({isVisible}){
             <ShoppingButton
               onClick={isVisible}
               className="header__icons--cart">
-                <Counter count={items ? items.cart.length : 0} />
+                <Counter  />
             </ShoppingButton>
           </div>
         </div> 

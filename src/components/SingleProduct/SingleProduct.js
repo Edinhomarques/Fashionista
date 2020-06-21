@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import Target from '../Target/Target'
-import img from '../../assets/foto_nao_disponivel.gif'
-import './SingleProduct.css'
-import Button from '../Button/Button'
+import React, { useState, useContext } from 'react';
+import Target from '../Target/Target';
+import img from '../../assets/foto_nao_disponivel.gif';
+import './SingleProduct.css';
+import Button from '../Button/Button';
+import  { CartContext } from '../../context/CartContext/CartContext'
+
 export default function SingleProduct({ singleItem } ) {
   const [selectedSize, setSelectedSize] = useState('')
-  const [selectedProduct, setSelectedProduct] = useState({
-    cart: [],
-  })
+  // const [selectedProduct, setSelectedProduct] = useState({
+  //   cart: [],
+  // })
+  const { addCart, setMsg, msg, selectedProduct } = useContext(CartContext)
   
-  const [msg, setMsg] = useState(false)
+  // const [msg, setMsg] = useState(false)
   if(!singleItem.sizes)
     return null
     
@@ -21,15 +24,13 @@ export default function SingleProduct({ singleItem } ) {
       setMsg(true)
     } else {
       const product = {...item, selectSized: size}
-      setSelectedProduct({
-        cart: [...selectedProduct.cart, product],
-      })
+      addCart(item, size)
      const storageItem = JSON.parse(localStorage.getItem('cart'))
      if(storageItem){
         localStorage.setItem('cart',JSON.stringify({
           cart: [...storageItem.cart, product]
         }) )
-     }else{
+     } else {
       localStorage.setItem('cart', JSON.stringify({
         cart: [...selectedProduct.cart, product],
       }))
